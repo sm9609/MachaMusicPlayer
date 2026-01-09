@@ -8,7 +8,7 @@ interface TrackListProps {
 export default function TrackList({tracks}: TrackListProps) {
   return (
     <div className='tracklist'>
-        <ul>{tracks?.map((t,i)=>(<li>{t.title}</li>))}</ul>
+        <ul>{tracks?.map((track,index)=>(<li key={index}>{track.title}</li>))}</ul>
     </div>
   )
 }

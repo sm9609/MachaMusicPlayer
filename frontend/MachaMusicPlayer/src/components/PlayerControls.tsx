@@ -1,16 +1,16 @@
-import {useState} from 'react'
+import {useState, type ReactEventHandler} from 'react'
 
 interface PlayerControlsProps {
-  onPlay?: ()=>void
-  onPuase?: ()=>void
-  onVolumeChange: (e: React.ChangeEvent<HTMLInputElement>)=>void
+  onPause: ReactEventHandler
+  onPlay: ReactEventHandler
+  onVolumeChange: (event: React.ChangeEvent<HTMLInputElement>) => void
 }
 
-export default function PlayerControls({onPlay,onPuase,onVolumeChange}: PlayerControlsProps) {
+export default function PlayerControls({onPlay,onPause,onVolumeChange}: PlayerControlsProps) {
   return (
     <div className='controlbar'>
-      <button onClick={onPlay}>Play</button>
-      <button onClick={onPuase}>Pause</button>
+      <button onClick={onPlay}>play</button>
+      <button onClick={onPause}>pause</button>
       <input title="volumeBar" type="range" onChange={onVolumeChange} />
     </div>
   )

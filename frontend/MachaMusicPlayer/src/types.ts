@@ -1,4 +1,6 @@
 export type track = {
-    title: string;
-    file: string
-}
+  id: number;
+  title?: string;
+  type: string;
+  src: string;
+};
