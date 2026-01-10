@@ -1,5 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { type track } from "../types";
+import "../css/AudioPlayer.css";
+
 interface AudioPlayerProps {
   track: track;
   volume: number;
@@ -12,7 +14,6 @@ export default function AudioPlayer({
   isPlaying,
 }: AudioPlayerProps) {
   const audioRef = useRef<HTMLAudioElement | null>(null);
-
   const handleError = () => {
     console.error("Error loading audio source:", track.src);
   };
@@ -25,8 +26,14 @@ export default function AudioPlayer({
   }, [isPlaying, volume]);
 
   return (
-    <audio ref={audioRef} onError={handleError}>
-      <source src={track.src} type={track.type} />
-    </audio>
+    <div className="audio-player">
+      <audio
+        className="audio-player audio"
+        ref={audioRef}
+        onError={handleError}
+      >
+        <source src={track.src} type={track.type} />
+      </audio>
+    </div>
   );
 }
